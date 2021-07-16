@@ -7,18 +7,18 @@
  2015-10 AM and DB: -Altered to be error free (not considering MU rules), general updates per recommendations, and added US Realm Header Template ID.
  2014-10 DB: 		-Created 'master doc'
 					 MANY modifications, additions, and reorganizations were made to accommodate the requirements.
-					 In addition, removed Advance Directives, Family History components, and others as not required by test data.					 
+					 In addition, removed Advance Directives, Family History components, and others as not required by test data.
 					-Updated to match 170.315_b1_toc_amb_sample1.docx test data.
-  
+
  ********************************************************
- Disclaimer: This sample file contains representative data elements to represent a Continuity of Care Document (CCD). 
- The file depicts a fictional character's health data. Any resemblance to a real person is coincidental. 
- To illustrate as many data elements as possible, the clinical scenario may not be plausible. 
- The data in this sample file is not intended to represent real patients, people or clinical events. 
+ Disclaimer: This sample file contains representative data elements to represent a Continuity of Care Document (CCD).
+ The file depicts a fictional character's health data. Any resemblance to a real person is coincidental.
+ To illustrate as many data elements as possible, the clinical scenario may not be plausible.
+ The data in this sample file is not intended to represent real patients, people or clinical events.
  This sample is designed to be used in conjunction with the C-CDA Clinical Notes Implementation Guide.
  ********************************************************
  -->
-<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<ClinicalDocument xmlns="urn:hl7-org:v3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:voc="urn:hl7-org:v3/voc" xmlns:sdtc="urn:hl7-org:sdtc">
 	<realmCode code="US"/>
 	<typeId extension="POCD_HD000040" root="2.16.840.1.113883.1.3"/>
@@ -67,7 +67,7 @@
 				<birthTime value="19700801"/>
 				<maritalStatusCode code="M" displayName="Married" codeSystem="2.16.840.1.113883.5.2" codeSystemName="MaritalStatusCode"/>
 				<religiousAffiliationCode code="1013" displayName="Christian (non-Catholic, non-specific)" codeSystem="2.16.840.1.113883.5.1076" codeSystemName="HL7 Religious Affiliation"/>
-				<!-- CDC Race and Ethnicity code set contains the five minimum race and ethnicity 
+				<!-- CDC Race and Ethnicity code set contains the five minimum race and ethnicity
 					categories defined by OMB Standards -->
 				<raceCode code="2106-3" displayName="White" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
 				<!-- The raceCode extension is only used if raceCode is valued -->
@@ -114,10 +114,10 @@
 				<softwareName>Amb EMR v1.0</softwareName>
 			</assignedAuthoringDevice>
 			<!-- added representedOrganization for CCD requirements when we do NOT have an assignedPerson -db -->
-			<!-- Consol Continuity of Care Document (CCD) (V3) SHALL contain at least one [1..*] author, 
+			<!-- Consol Continuity of Care Document (CCD) (V3) SHALL contain at least one [1..*] author,
 			where its type is Author (CONF:1198-9442) each SHALL contain exactly one [1..1] assignedAuthor,
 			where  (CONF:1198-9443) assignedAuthor SHALL contain exactly one [1..1] assignedPerson and/or exactly one [1..1]
-			representedOrganization (CONF:1198-8456) -->			
+			representedOrganization (CONF:1198-8456) -->
 		        <representedOrganization>
 			  <id root="2.16.840.1.113883.19.5"/>
 			  <name>Neighborhood Physicians Practice</name>
@@ -304,19 +304,19 @@
 				</name>
 			</associatedPerson>
 		</associatedEntity>
-	</participant>	
+	</participant>
 	<documentationOf>
 		<serviceEvent classCode="PCPR">
 			<code code="386661006" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"
 				displayName="Fever"/>
-			<!-- The effectiveTime reflects the provision of care summarized in the document. 
+			<!-- The effectiveTime reflects the provision of care summarized in the document.
 				In this scenario, the provision of care summarized is the lifetime for the patient -->
 			<effectiveTime>
 				<low value="201502221000-0500"/>
-				<!-- The low value represents when the summarized provision of care began. 
+				<!-- The low value represents when the summarized provision of care began.
 					In this scenario, the patient's date of birth -->
 				<high value="201502221030-0500"/>
-				<!-- The high value represents when the summarized provision of care being ended. 
+				<!-- The high value represents when the summarized provision of care being ended.
 					In this scenario, when chart summary was created -->
 			</effectiveTime>
 			<!-- since there are two Care Team members we need two performer elements. -db -->
@@ -386,7 +386,7 @@
 						</name>
 					</assignedPerson>
 				</assignedEntity>
-			</performer>			
+			</performer>
 		</serviceEvent>
 	</documentationOf>
 	<!-- added componentOf to represent encounter and to represent length of stay better as per SME suggestion -db -->
@@ -397,14 +397,14 @@
 			    <!-- represents length of time spent in hospital -db -->
 				<low value="201502221000-0500"/>
 				<high value="201502221030-0500"/>
-			</effectiveTime>			
+			</effectiveTime>
 		</encompassingEncounter>
 	</componentOf>
 	<!-- ******************************************************** CDA Body ******************************************************** -->
 	<component>
 		<structuredBody>
-			
-			
+
+
 			<!-- ***************** ALLERGIES *************** -->
 			<!-- edited as per test doc - all data relevant -db -->
 			<component>
@@ -453,7 +453,7 @@
 							</tbody>
 						</table>
 					</text>
-					<!-- replaced Allergy Problem Act (R1.1) with 
+					<!-- replaced Allergy Problem Act (R1.1) with
 					Allergy Concern Act (V3) to meet R2.1 validation requirements -DB-->
 					<entry typeCode="DRIV">
 						<act classCode="ACT" moodCode="EVN">
@@ -517,7 +517,7 @@
 												</code>
 											</playingEntity>
 										</participantRole>
-									</participant>											
+									</participant>
 									<entryRelationship typeCode="MFST" inversionInd="true">
 										<observation classCode="OBS" moodCode="EVN">
 											<!-- ** Reaction Observation (V2) ** -->
@@ -535,7 +535,7 @@
 											<entryRelationship typeCode="SUBJ" inversionInd="true">
 												<observation classCode="OBS" moodCode="EVN">
 													<!-- ** Severity Observation  (V2)** -->
-													<!-- When the Severity Observation is associated directly with an allergy it characterizes the allergy. 
+													<!-- When the Severity Observation is associated directly with an allergy it characterizes the allergy.
 								When the Severity Observation is associated with a Reaction Observation it characterizes a Reaction. -->
 													<templateId root="2.16.840.1.113883.10.20.22.4.8" extension="2014-06-09"/>
 													<templateId root="2.16.840.1.113883.10.20.22.4.8"/>
@@ -618,7 +618,7 @@
 												</code>
 											</playingEntity>
 										</participantRole>
-									</participant>								
+									</participant>
 									<entryRelationship typeCode="MFST" inversionInd="true">
 										<observation classCode="OBS" moodCode="EVN">
 											<!-- ** Reaction Observation (V2) ** -->
@@ -630,14 +630,14 @@
 												<reference value="#reaction1"/>
 											</text>
 											<statusCode code="completed"/>
-											
+
 											<value xsi:type="CD" code="247472004"
 												codeSystem="2.16.840.1.113883.6.96"
 												displayName="Hives"/>
 											<entryRelationship typeCode="SUBJ" inversionInd="true">
 												<observation classCode="OBS" moodCode="EVN">
 													<!-- ** Severity Observation  (V2)** -->
-													<!-- When the Severity Observation is associated directly with an allergy it characterizes the allergy. 
+													<!-- When the Severity Observation is associated directly with an allergy it characterizes the allergy.
 								When the Severity Observation is associated with a Reaction Observation it characterizes a Reaction. -->
 													<templateId root="2.16.840.1.113883.10.20.22.4.8" extension="2014-06-09"/>
 													<templateId root="2.16.840.1.113883.10.20.22.4.8"/>
@@ -660,9 +660,9 @@
 					</entry>
 				</section>
 			</component>
-			
+
 			<!-- ******************************* MEDICATIONS ***************************** -->
-			<!-- edited as per test doc - all data relevant -db -->			
+			<!-- edited as per test doc - all data relevant -db -->
 			<component>
 				<section>
 					<!-- *** Medications Section (entries required) (V2) *** -->
@@ -680,12 +680,12 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
+								<tr id="Medication_1">
 									<td>Aranesp 0.5 MG/ML</td>
 									<td ID="Darb_SIG">Once a week</td>
 									<td>February 22, 2015</td>
 								</tr>
-								<tr>
+								<tr id="Medication_1">
 									<td>Tylenol 500mg</td>
 									<td ID="Tylenol_SIG">For 10 days As needed</td>
 									<td>February 22, 2015</td>
@@ -699,6 +699,10 @@
 							<templateId root="2.16.840.1.113883.10.20.22.4.16" extension="2014-06-09"/>
 							<templateId root="2.16.840.1.113883.10.20.22.4.16"/>
 							<id root="cdbd33f0-8a13-41a3-9fe1-0800200c9a67"/>
+							<text>
+                <!-- This reference refers to medication information in unstructured portion of section-->
+                <reference value="#Medication_1" />
+              </text>
 							<statusCode code="active"/>
 							<effectiveTime xsi:type="IVL_TS">
 								<low value="20150222"/>
@@ -742,9 +746,9 @@
 								<!-- moodCode matches the parent substanceAdministration EVN or INT -->
 								<substanceAdministration classCode="SBADM" moodCode="EVN">
 									<templateId root="2.16.840.1.113883.10.20.22.4.147"/>
-									<code code="76662-6" 
-										codeSystem="2.16.840.1.113883.6.1" 
-										codeSystemName="LOINC" 
+									<code code="76662-6"
+										codeSystem="2.16.840.1.113883.6.1"
+										codeSystemName="LOINC"
 										displayName="Medication Instructions"/>
 									<text>
 										<!-- Reference into the section.text to a tag that ONLY contains free text SIG -->
@@ -765,6 +769,10 @@
 							<templateId root="2.16.840.1.113883.10.20.22.4.16" extension="2014-06-09"/>
 							<templateId root="2.16.840.1.113883.10.20.22.4.16"/>
 							<id root="6c844c75-aa34-411c-b7bd-ddddddddddd3"/>
+							<text>
+                <!-- This reference refers to medication information in unstructured portion of section-->
+                <reference value="#Medication_2" />
+              </text>
 							<statusCode code="active"/>
 							<effectiveTime xsi:type="IVL_TS">
 								<low value="20150222"/>
@@ -807,9 +815,9 @@
 								<!-- moodCode matches the parent substanceAdministration EVN or INT -->
 								<substanceAdministration classCode="SBADM" moodCode="EVN">
 									<templateId root="2.16.840.1.113883.10.20.22.4.147"/>
-									<code code="76662-6" 
-										codeSystem="2.16.840.1.113883.6.1" 
-										codeSystemName="LOINC" 
+									<code code="76662-6"
+										codeSystem="2.16.840.1.113883.6.1"
+										codeSystemName="LOINC"
 										displayName="Medication Instructions"/>
 									<text>
 										<!-- Reference into the section.text to a tag that ONLY contains free text SIG -->
@@ -823,12 +831,12 @@
 								</substanceAdministration>
 							</entryRelationship>
 						</substanceAdministration>
-					</entry>					
+					</entry>
 				</section>
 			</component>
-			
+
 			<!-- ***************** PROBLEM LIST *********************** -->
-			<!-- edited as per test doc - all data relevant -db -->		
+			<!-- edited as per test doc - all data relevant -db -->
 			<component>
 				<section>
 					<!--  *** Problem Section (entries required) (V3) *** -->
@@ -858,7 +866,7 @@
 								<list>
 									<item>Fever</item>
 								</list>
-							</item>							
+							</item>
 						</list>
 					</text>
 					<entry typeCode="DRIV">
@@ -992,7 +1000,7 @@
 									<templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2015-08-01"/>
 									<templateId root="2.16.840.1.113883.10.20.22.4.4"/>
 									<id root="ab1791b0-8a20-41b0-b0de-0800200c9a69"/>
-									<code code="64572001" displayName="Condition" codeSystemName="SNOMED-CT" codeSystem="2.16.840.1.113883.6.96">									
+									<code code="64572001" displayName="Condition" codeSystemName="SNOMED-CT" codeSystem="2.16.840.1.113883.6.96">
 										<!-- a.	This code SHALL contain at least one [1..*] translation, which SHOULD be selected from ValueSet Problem Type (LOINC) -->
 										<!-- Condition seems like the best option:
 										No EXACT requirement was given in the test data -db -->
@@ -1083,13 +1091,13 @@
 								</observation>
 							</entryRelationship>
 						</act>
-					</entry>															
+					</entry>
 				</section>
 			</component>
-			
+
 			<!-- ************************ ENCOUNTERS *********************** -->
 			<!-- edited as per test doc - NOT all data is relevant, but all entries themselves are relevant -db -->
-			<!-- Although only EO is needed, ER was used due to the Yellow highlight/2015 certification requirements 
+			<!-- Although only EO is needed, ER was used due to the Yellow highlight/2015 certification requirements
 			in CCD for Encounters. This will of course work for all other cases as well so is more universal. -db -->
 			<component>
 				<section>
@@ -1156,19 +1164,19 @@
 									<telecom value="tel:+1(555)-555-1002" use="WP"/>
 									<playingEntity classCode="PLC">
 										<name>Neighborhood Physicians Practice</name>
-									</playingEntity>									
+									</playingEntity>
 								</participantRole>
 							</participant>
 							<entryRelationship typeCode="SUBJ">
-								<!-- ** Encounter Diagnosis (V3)** -->								
-								<act classCode="ACT" moodCode="EVN"> 				
+								<!-- ** Encounter Diagnosis (V3)** -->
+								<act classCode="ACT" moodCode="EVN">
 								   <templateId root="2.16.840.1.113883.10.20.22.4.80" extension="2015-08-01"/>
 								   <templateId root="2.16.840.1.113883.10.20.22.4.80" />
-								   <templateId root="2.16.840.1.113883.10.20.22.4.19"/>                           
+								   <templateId root="2.16.840.1.113883.10.20.22.4.19"/>
 								   <id root="5a784260-6857-4f38-9638-80c751aff2fb"/>
-								   <code xsi:type="CE" 
+								   <code xsi:type="CE"
 									  code="29308-4"
-									  codeSystem="2.16.840.1.113883.6.1" 
+									  codeSystem="2.16.840.1.113883.6.1"
 									  codeSystemName="LOINC"
 									  displayName="ENCOUNTER DIAGNOSIS"/>
 								   <effectiveTime>
@@ -1195,11 +1203,11 @@
 								   </entryRelationship>
 								</act>
 							 </entryRelationship>
-							
+
 						</encounter>
 					</entry>
 				</section>
-			</component>			
+			</component>
 
 			<!-- Immunizations -->
 			<component>
@@ -1212,7 +1220,7 @@
 					<text>No Immunization Information</text>
 				</section>
 			</component>
-					
+
 			<!-- Lab Results -->
 			<component>
 				<section nullFlavor="NI">
@@ -1224,7 +1232,7 @@
 					<text>No Lab Test required. No Lab results.</text>
 				</section>
 			</component>
-			
+
 			<!-- Vital Signs -->
 			<component>
 				<section nullFlavor="NI">
@@ -1236,7 +1244,7 @@
 					<text>No Vital Signs Information</text>
 				</section>
 			</component>
-			
+
 			<!-- ******************* SOCIAL HISTORY ********************* -->
 			<component>
 				<section nullFlavor="NI">
@@ -1248,7 +1256,7 @@
 					<text>No Social History Information</text>
 				</section>
 			</component>
-						
+
 			<!-- ************** PROCEDURES and UDI ***************** -->
 			<!-- edited as per test doc - all of this data is directly relevant -db -->
 			<component>
@@ -1261,13 +1269,13 @@
 					<text>No Procedure Information</text>
 				</section>
 			</component>
-			
-			<!-- 
+
+			<!--
 			********************************************************
 			FUNCTIONAL STATUS
 			********************************************************
-			-->			
-			<component>				
+			-->
+			<component>
 				<section nullFlavor="NI">
 					<!-- Functional Status Section (V2)-->
 					<templateId root="2.16.840.1.113883.10.20.22.2.14" extension="2014-06-09"/>
@@ -1278,8 +1286,8 @@
 					<text>No Functional Status Information</text>
 				</section>
 			</component>
-	
-			<!-- 
+
+			<!--
 			********************************************************
 			Assessment
 			********************************************************
@@ -1290,14 +1298,14 @@
 					<!-- Assessment Section -db -->
 					<!-- There is no R2.1 (or 2.0) version of Assessment Section, using R1.1 templateId only -db -->
 					<templateId root="2.16.840.1.113883.10.20.22.2.8"/>
-					<code codeSystem="2.16.840.1.113883.6.1" 
-						 codeSystemName="LOINC" code="51848-0" 
+					<code codeSystem="2.16.840.1.113883.6.1"
+						 codeSystemName="LOINC" code="51848-0"
 						 displayName="ASSESSMENTS"/>
 					<title>ASSESSMENTS</title>
 					<text>No Assessments Information</text>
 				</section>
 			</component>
-			
+
 			<!-- ******************* PLAN OF TREATMENT ********************** -->
 			<!-- edited as per test doc - all of this data (except one author) is directly relevant -db -->
 			<component>
@@ -1310,13 +1318,13 @@
 					<text>No Plan of Treatment Information</text>
 				</section>
 			</component>
-					
-			<!-- 
+
+			<!--
                 ********************************************************
                 Goals
                 ********************************************************
             -->
-			<!-- edited as per test doc - most of this data (except author) is directly relevant - needs work -db -->			
+			<!-- edited as per test doc - most of this data (except author) is directly relevant - needs work -db -->
 			<component>
 				<section nullFlavor="NI">
 					<!-- Goals Section -->
@@ -1327,12 +1335,12 @@
 					<text>No Goals Information</text>
 				</section>
 			</component>
-			<!-- 
+			<!--
 			********************************************************
 			Health Concerns
 			********************************************************
 			-->
-			<!-- edited as per test doc - most of this data is directly relevant (this is basically entirely original content) -db -->			
+			<!-- edited as per test doc - most of this data is directly relevant (this is basically entirely original content) -db -->
 			<component>
 				<section nullFlavor="NI">
 					<!-- Health Concerns Section (V2) (V1 was added as a NEW template in R2.0, V2 was updated in R2.1) -db -->
@@ -1342,14 +1350,14 @@
 					<text>No Health Concerns Information</text>
 				</section>
 			</component>
-			
-			<!-- 
+
+			<!--
 			********************************************************
-			Reason for Referral 
+			Reason for Referral
 			********************************************************
-			-->			
-			<!-- edited as per test doc - all of this data is directly relevant -db -->	
-			<component>				
+			-->
+			<!-- edited as per test doc - all of this data is directly relevant -db -->
+			<component>
 				<section nullFlavor="NI">
 					<!-- Reason for Referral Section (V2) -->
 					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.1" extension="2014-06-09"/>
@@ -1361,11 +1369,11 @@
 			</component>
 
 			<!-- added Mental Status Section (V2) (used to be NEW in R2.0) 2.16.840.1.113883.10.20.22.2.56 as required by latest ToC test data -db -->
-			<!-- 
+			<!--
 			********************************************************
 			Mental Status Section
 			********************************************************
-			-->		
+			-->
 			<component>
 				<section nullFlavor="NI">
 				    <!-- note: the IG lists the wrong templateId in its example of this section, lists ...2,14 instead of 2.56 -db -->
@@ -1376,8 +1384,8 @@
 					<title>MENTAL STATUS</title>
 					<text>No Mental Status Information</text>
 				</section>
-			</component>				
-			
+			</component>
+
 			<component>
 				<section nullFlavor="NI">
 					<!-- Medical equipment section -->
@@ -1387,10 +1395,10 @@
 					<title>MEDICAL EQUIPMENT</title>
 					<!-- Alternative text: Patient has no history of procedures with implantable devices'-->
 					<!-- Alternative text: Patient has no implanted devices'-->
-					<text>No Medical Equipment implants on Patient</text>	
+					<text>No Medical Equipment implants on Patient</text>
 				</section>
 			</component>
-		
+
 		</structuredBody>
 	</component>
 </ClinicalDocument>

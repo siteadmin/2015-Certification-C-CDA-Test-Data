@@ -2,23 +2,23 @@
 <?xml-stylesheet type="text/xsl" href="CDA.xsl"?>
 <!--
  Title:        Discharge Summary (DS)
- 
+
  $LastChangedDate: 2015-8-11 11:25:09 -0400 (Wed, 11 Aug 2015) $
  2015-10 AM and DB: -Altered to be error free (not considering MU rules), general updates per recommendations, and added US Realm Header Template ID.
  2015-10 DB: 		-Created 'master doc'
 					 MANY modifications, additions, and reorganizations were made to accommodate the requirements.
-					 In addition, removed Advance Directives, Family History components, and others as not required by test data.					 
+					 In addition, removed Advance Directives, Family History components, and others as not required by test data.
 					-Updated to match 170.315_b1_toc_inp_sample1.docx test data.
-  
+
  ********************************************************
- Disclaimer: This sample file contains representative data elements to represent a Continuity of Care Document (CCD). 
- The file depicts a fictional character's health data. Any resemblance to a real person is coincidental. 
- To illustrate as many data elements as possible, the clinical scenario may not be plausible. 
- The data in this sample file is not intended to represent real patients, people or clinical events. 
+ Disclaimer: This sample file contains representative data elements to represent a Continuity of Care Document (CCD).
+ The file depicts a fictional character's health data. Any resemblance to a real person is coincidental.
+ To illustrate as many data elements as possible, the clinical scenario may not be plausible.
+ The data in this sample file is not intended to represent real patients, people or clinical events.
  This sample is designed to be used in conjunction with the C-CDA Clinical Notes Implementation Guide.
  ********************************************************
  -->
-<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+<ClinicalDocument xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xmlns="urn:hl7-org:v3"
  xmlns:voc="urn:hl7-org:v3/voc"
  xmlns:sdtc="urn:hl7-org:sdtc">
@@ -69,7 +69,7 @@
 				<birthTime value="19700701"/>
 				<maritalStatusCode code="M" displayName="Married" codeSystem="2.16.840.1.113883.5.2" codeSystemName="MaritalStatusCode"/>
 				<religiousAffiliationCode code="1013" displayName="Christian (non-Catholic, non-specific)" codeSystem="2.16.840.1.113883.5.1076" codeSystemName="HL7 Religious Affiliation"/>
-				<!-- CDC Race and Ethnicity code set contains the five minimum race and ethnicity 
+				<!-- CDC Race and Ethnicity code set contains the five minimum race and ethnicity
 					categories defined by OMB Standards -->
 				<raceCode code="2106-3" displayName="White" codeSystem="2.16.840.1.113883.6.238" codeSystemName="Race &amp; Ethnicity - CDC"/>
 				<!-- The raceCode extension is only used if raceCode is valued -->
@@ -300,19 +300,19 @@
 				</name>
 			</associatedPerson>
 		</associatedEntity>
-	</participant>	
+	</participant>
 	<documentationOf>
 		<serviceEvent classCode="PCPR">
 			<code code="164139008" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED-CT"
 				displayName="Anemia"/>
-			<!-- The effectiveTime reflects the provision of care summarized in the document. 
+			<!-- The effectiveTime reflects the provision of care summarized in the document.
 				In this scenario, the provision of care summarized is the lifetime for the patient -->
 			<effectiveTime>
 				<low value="20150622"/>
-				<!-- The low value represents when the summarized provision of care began. 
+				<!-- The low value represents when the summarized provision of care began.
 					In this scenario, the patient's date of birth -->
 				<high value="20150624"/>
-				<!-- The high value represents when the summarized provision of care being ended. 
+				<!-- The high value represents when the summarized provision of care being ended.
 					In this scenario, when chart summary was created -->
 			</effectiveTime>
 			<!-- since there are two Care Team members we need two performer elements. -db -->
@@ -382,7 +382,7 @@
 						</name>
 					</assignedPerson>
 				</assignedEntity>
-			</performer>			
+			</performer>
 		</serviceEvent>
 	</documentationOf>
 	<!-- added componentOf to represent encounter and to represent length of stay better as per SME suggestion -db -->
@@ -395,14 +395,14 @@
 				<high value="20150624"/>
 			</effectiveTime>
 			<dischargeDispositionCode code="01" codeSystem="2.16.840.1.113883.12.112"
-				displayName="Routine Discharge" codeSystemName="HL7 Discharge Disposition"/>			
+				displayName="Routine Discharge" codeSystemName="HL7 Discharge Disposition"/>
 		</encompassingEncounter>
 	</componentOf>
 	<!-- ******************************************************** CDA Body ******************************************************** -->
 	<component>
 		<structuredBody>
-			
-			
+
+
 			<!-- ***************** ALLERGIES *************** -->
 			<!-- edited as per test doc - all data relevant -db -->
 			<component>
@@ -439,7 +439,7 @@
 							</tbody>
 						</table>
 					</text>
-					<!-- replaced Allergy Problem Act (R1.1) with 
+					<!-- replaced Allergy Problem Act (R1.1) with
 					Allergy Concern Act (V3) to meet R2.1 validation requirements -DB-->
 					<entry typeCode="DRIV">
 						<act classCode="ACT" moodCode="EVN">
@@ -506,7 +506,7 @@
 												</code>
 											</playingEntity>
 										</participantRole>
-									</participant>								
+									</participant>
 									<entryRelationship typeCode="MFST" inversionInd="true">
 										<observation classCode="OBS" moodCode="EVN">
 											<!-- ** Reaction Observation (V2) ** -->
@@ -524,7 +524,7 @@
 											<entryRelationship typeCode="SUBJ" inversionInd="true">
 												<observation classCode="OBS" moodCode="EVN">
 													<!-- ** Severity Observation  (V2)** -->
-													<!-- When the Severity Observation is associated directly with an allergy it characterizes the allergy. 
+													<!-- When the Severity Observation is associated directly with an allergy it characterizes the allergy.
 														When the Severity Observation is associated with a Reaction Observation it characterizes a Reaction. -->
 													<templateId root="2.16.840.1.113883.10.20.22.4.8" extension="2014-06-09"/>
 													<templateId root="2.16.840.1.113883.10.20.22.4.8"/>
@@ -547,9 +547,9 @@
 					</entry>
 				</section>
 			</component>
-			
+
 			<!-- ******************************* MEDICATIONS ***************************** -->
-			<!-- although not listed in test data requirements, required as per CCD -db -->			
+			<!-- although not listed in test data requirements, required as per CCD -db -->
 			<component>
 				<section>
 					<!-- *** Medications Section (entries required) (V2) *** -->
@@ -567,7 +567,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
+								<tr id="Medication_1">
 									<td>Tylenol 500mg</td>
 									<td ID="Tylenol_SIG">As needed</td>
 									<td>June 22, 2015</td>
@@ -581,6 +581,10 @@
 							<templateId root="2.16.840.1.113883.10.20.22.4.16" extension="2014-06-09"/>
 							<templateId root="2.16.840.1.113883.10.20.22.4.16"/>
 							<id root="6c844c75-aa34-411c-b7bd-5e4a9f206e29"/>
+              <text>
+                <!-- This reference refers to medication information in unstructured portion of section-->
+                <reference value="#Medication_1" />
+              </text>
 							<statusCode code="active"/>
 							<effectiveTime xsi:type="IVL_TS">
 								<low value="20150622"/>
@@ -623,9 +627,9 @@
 								<!-- moodCode matches the parent substanceAdministration EVN or INT -->
 								<substanceAdministration classCode="SBADM" moodCode="EVN">
 									<templateId root="2.16.840.1.113883.10.20.22.4.147"/>
-									<code code="76662-6" 
-										codeSystem="2.16.840.1.113883.6.1" 
-										codeSystemName="LOINC" 
+									<code code="76662-6"
+										codeSystem="2.16.840.1.113883.6.1"
+										codeSystemName="LOINC"
 										displayName="Medication Instructions"/>
 									<text>
 										<!-- Reference into the section.text to a tag that ONLY contains free text SIG -->
@@ -639,14 +643,14 @@
 								</substanceAdministration>
 							</entryRelationship>
 						</substanceAdministration>
-					</entry>					
+					</entry>
 				</section>
-			</component>			
-			
-			
-			
+			</component>
+
+
+
 			<!-- ***************** PROBLEM LIST *********************** -->
-			<!-- edited as per test doc - all data relevant -db -->		
+			<!-- edited as per test doc - all data relevant -db -->
 			<component>
 				<section>
 					<!--  *** Problem Section (entries required) (V3) *** -->
@@ -667,7 +671,7 @@
 								<list>
 									<item>Iron deficiency anemia</item>
 								</list>
-							</item>							
+							</item>
 							<!-- replaces fever -db -->
 							<item>Problem #5
 								<list>
@@ -760,7 +764,7 @@
 									<templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2015-08-01"/>
 									<templateId root="2.16.840.1.113883.10.20.22.4.4"/>
 									<id root="ab1791b0-5c71-11db-6626-6666666c6a66"/>
-									<code code="64572001" displayName="Condition" codeSystemName="SNOMED-CT" codeSystem="2.16.840.1.113883.6.96">									
+									<code code="64572001" displayName="Condition" codeSystemName="SNOMED-CT" codeSystem="2.16.840.1.113883.6.96">
 										<!-- a.	This code SHALL contain at least one [1..*] translation, which SHOULD be selected from ValueSet Problem Type (LOINC) -->
 										<!-- Condition seems like the best option:
 										No EXACT requirement was given in the test data -db -->
@@ -817,7 +821,7 @@
 									<templateId root="2.16.840.1.113883.10.20.22.4.4" extension="2015-08-01"/>
 									<templateId root="2.16.840.1.113883.10.20.22.4.4"/>
 									<id root="ab1791b0-5c71-11db-b0de-0816200c9a41"/>
-									<code code="64572001" displayName="Condition" codeSystemName="SNOMED-CT" codeSystem="2.16.840.1.113883.6.96">									
+									<code code="64572001" displayName="Condition" codeSystemName="SNOMED-CT" codeSystem="2.16.840.1.113883.6.96">
 										<!-- a.	This code SHALL contain at least one [1..*] translation, which SHOULD be selected from ValueSet Problem Type (LOINC) -->
 										<!-- Condition seems like the best option:
 										No EXACT requirement was given in the test data -db -->
@@ -851,7 +855,7 @@
 								</observation>
 							</entryRelationship>
 						</act>
-					</entry>					
+					</entry>
 					<entry typeCode="COMP">
 						<act classCode="ACT" moodCode="EVN">
 							<!-- ** Problem Concern Act (V3) ** -->
@@ -866,7 +870,7 @@
 								<!-- The low value represents when the problem was first recorded in the patient's chart -->
 								<low value="20061231"/>
 								<!-- The high value reflects when there was no longer a need to track the problem -->
-								<high value="20070601"/>							
+								<high value="20070601"/>
 							</effectiveTime>
 							<!-- removed author as not required -db -->
 							<entryRelationship typeCode="SUBJ">
@@ -909,13 +913,13 @@
 								</observation>
 							</entryRelationship>
 						</act>
-					</entry>				
+					</entry>
 				</section>
 			</component>
-			
+
 			<!-- ************************ ENCOUNTERS *********************** -->
 			<!-- edited as per test doc - NOT all data is relevant, but all entries themselves are relevant -db -->
-			<!-- Although only EO is needed, ER was used due to the Yellow highlight/2015 certification requirements 
+			<!-- Although only EO is needed, ER was used due to the Yellow highlight/2015 certification requirements
 			in CCD for Encounters. This will of course work for all other cases as well so is more universal. -db -->
 			<component>
 				<section>
@@ -982,19 +986,19 @@
 									<telecom value="tel:+1(555)-555-1002" use="WP"/>
 									<playingEntity classCode="PLC">
 										<name>Community Health and Hospitals</name>
-									</playingEntity>									
+									</playingEntity>
 								</participantRole>
 							</participant>
 							<entryRelationship typeCode="SUBJ">
-								<!-- ** Encounter Diagnosis (V3)** -->								
-								<act classCode="ACT" moodCode="EVN"> 				
+								<!-- ** Encounter Diagnosis (V3)** -->
+								<act classCode="ACT" moodCode="EVN">
 									<templateId root="2.16.840.1.113883.10.20.22.4.80" extension="2015-08-01"/>
 									<templateId root="2.16.840.1.113883.10.20.22.4.80" />
-									<templateId root="2.16.840.1.113883.10.20.22.4.19"/>                           
+									<templateId root="2.16.840.1.113883.10.20.22.4.19"/>
 									<id root="5a784260-6857-4f38-9638-80c851aff2fb"/>
-									<code xsi:type="CE" 
+									<code xsi:type="CE"
 										code="29308-4"
-										codeSystem="2.16.840.1.113883.6.1" 
+										codeSystem="2.16.840.1.113883.6.1"
 										codeSystemName="LOINC"
 										displayName="ENCOUNTER DIAGNOSIS"/>
 									<effectiveTime>
@@ -1026,7 +1030,7 @@
 				</section>
 			</component>
 
-			
+
 			<!-- ******************** D) Encounter Diagnoses ********************* -->
 
 			<!-- added Admission Diagnosis Section (V3), -db -->
@@ -1042,7 +1046,7 @@
 					<text>No Admission Diagnosis Information</text>
 				</section>
 			</component>
-			
+
 			<!-- Discharge Medications Sections -->
 			<component>
 				<section nullFlavor="NI">
@@ -1059,8 +1063,8 @@
 					<title>Discharge Medications</title>
 					<text>No Information</text>
 				</section>
-			</component>	
-			
+			</component>
+
 			<!-- Immunizations -->
 			<component>
 				<section nullFlavor="NI">
@@ -1072,7 +1076,7 @@
 					<text>No Immunization Information</text>
 				</section>
 			</component>
-					
+
 			<!-- Lab Results -->
 			<component>
 				<section nullFlavor="NI">
@@ -1084,7 +1088,7 @@
 					<text>No Lab Test required. No Lab results.</text>
 				</section>
 			</component>
-			
+
 			<!-- Vital Signs -->
 			<component>
 				<section nullFlavor="NI">
@@ -1096,7 +1100,7 @@
 					<text>No Vital Signs Information</text>
 				</section>
 			</component>
-			
+
 			<!-- ******************* SOCIAL HISTORY ********************* -->
 			<component>
 				<section nullFlavor="NI">
@@ -1108,7 +1112,7 @@
 					<text>No Social History Information</text>
 				</section>
 			</component>
-						
+
 			<!-- ************** PROCEDURES and UDI ***************** -->
 			<!-- edited as per test doc - all of this data is directly relevant -db -->
 			<component>
@@ -1121,13 +1125,13 @@
 					<text>No Procedure Information</text>
 				</section>
 			</component>
-			
-			<!-- 
+
+			<!--
 			********************************************************
 			FUNCTIONAL STATUS
 			********************************************************
-			-->			
-			<component>				
+			-->
+			<component>
 				<section nullFlavor="NI">
 					<!-- Functional Status Section (V2)-->
 					<templateId root="2.16.840.1.113883.10.20.22.2.14" extension="2014-06-09"/>
@@ -1138,8 +1142,8 @@
 					<text>No Functional Status Information</text>
 				</section>
 			</component>
-	
-			<!-- 
+
+			<!--
 			********************************************************
 			Assessment
 			********************************************************
@@ -1150,14 +1154,14 @@
 					<!-- Assessment Section -db -->
 					<!-- There is no R2.1 (or 2.0) version of Assessment Section, using R1.1 templateId only -db -->
 					<templateId root="2.16.840.1.113883.10.20.22.2.8"/>
-					<code codeSystem="2.16.840.1.113883.6.1" 
-						 codeSystemName="LOINC" code="51848-0" 
+					<code codeSystem="2.16.840.1.113883.6.1"
+						 codeSystemName="LOINC" code="51848-0"
 						 displayName="ASSESSMENTS"/>
 					<title>ASSESSMENTS</title>
 					<text>No Assessments Information</text>
 				</section>
 			</component>
-			
+
 			<!-- ******************* PLAN OF TREATMENT ********************** -->
 			<!-- edited as per test doc - all of this data (except one author) is directly relevant -db -->
 			<component>
@@ -1170,13 +1174,13 @@
 					<text>No Plan of Treatment Information</text>
 				</section>
 			</component>
-					
-			<!-- 
+
+			<!--
                 ********************************************************
                 Goals
                 ********************************************************
             -->
-			<!-- edited as per test doc - most of this data (except author) is directly relevant - needs work -db -->			
+			<!-- edited as per test doc - most of this data (except author) is directly relevant - needs work -db -->
 			<component>
 				<section nullFlavor="NI">
 					<!-- Goals Section -->
@@ -1187,12 +1191,12 @@
 					<text>No Goals Information</text>
 				</section>
 			</component>
-			<!-- 
+			<!--
 			********************************************************
 			Health Concerns
 			********************************************************
 			-->
-			<!-- edited as per test doc - most of this data is directly relevant (this is basically entirely original content) -db -->			
+			<!-- edited as per test doc - most of this data is directly relevant (this is basically entirely original content) -db -->
 			<component>
 				<section nullFlavor="NI">
 					<!-- Health Concerns Section (V2) (V1 was added as a NEW template in R2.0, V2 was updated in R2.1) -db -->
@@ -1202,14 +1206,14 @@
 					<text>No Health Concerns Information</text>
 				</section>
 			</component>
-			
-			<!-- 
+
+			<!--
 			********************************************************
-			Reason for Referral 
+			Reason for Referral
 			********************************************************
-			-->			
-			<!-- edited as per test doc - all of this data is directly relevant -db -->	
-			<component>				
+			-->
+			<!-- edited as per test doc - all of this data is directly relevant -db -->
+			<component>
 				<section nullFlavor="NI">
 					<!-- Reason for Referral Section (V2) -->
 					<templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.1" extension="2014-06-09"/>
@@ -1221,11 +1225,11 @@
 			</component>
 
 			<!-- added Mental Status Section (V2) (used to be NEW in R2.0) 2.16.840.1.113883.10.20.22.2.56 as required by latest ToC test data -db -->
-			<!-- 
+			<!--
 			********************************************************
 			Mental Status Section
 			********************************************************
-			-->		
+			-->
 			<component>
 				<section nullFlavor="NI">
 				    <!-- note: the IG lists the wrong templateId in its example of this section, lists ...2,14 instead of 2.56 -db -->
@@ -1236,8 +1240,8 @@
 					<title>MENTAL STATUS</title>
 					<text>No Mental Status Information</text>
 				</section>
-			</component>				
-			
+			</component>
+
 			<component>
 				<section nullFlavor="NI">
 					<!-- Medical equipment section -->
@@ -1247,14 +1251,14 @@
 					<title>MEDICAL EQUIPMENT</title>
 					<!-- Alternative text: Patient has no history of procedures with implantable devices'-->
 					<!-- Alternative text: Patient has no implanted devices'-->
-					<text>No Medical Equipment implants on Patient</text>	
+					<text>No Medical Equipment implants on Patient</text>
 				</section>
 			</component>
-			
-			<!-- 
+
+			<!--
 			************************************
 			HOSPITAL DISCHARGE INSTRUCTIONS
-			************************************ 
+			************************************
 			-->
 			<component>
 				<section nullFlavor="NI">
@@ -1270,14 +1274,14 @@
 					<!-- Unstructured text field -->
 					<text>No Hospital Discharge Instructions Information</text>
 				</section>
-			</component>			
+			</component>
 
-			<!-- removed Reason for Referral -db -->		
+			<!-- removed Reason for Referral -db -->
 			<!-- added Hospital Course as per Discharge Summary Document type requirements -db -->
-			<!-- ******************************************************** 
-			Hospital Course 
+			<!-- ********************************************************
+			Hospital Course
 			******************************************************** -->
-			<!-- The Hospital Course Section describes the sequence of events 
+			<!-- The Hospital Course Section describes the sequence of events
 			from admission to discharge in a hospital facility. -->
 			<!-- The document Narrative was used for the text -db -->
 			<component>
@@ -1290,9 +1294,9 @@
 					<text>No Hospital Course Information.</text>
 				</section>
 			</component>
-			
+
 			<!-- added Discharge Diagnosis (V3) as per Discharge Summary Document type requirements -db -->
-			<!-- ******************************************************** 
+			<!-- ********************************************************
 			Discharge Diagnosis Section
 			******************************************************** -->
 			<!-- The end of the document Narrative was used for the text -db -->
@@ -1315,7 +1319,7 @@
 					<text>No Discharge Diagnosis Information.</text>
 				</section>
 			</component>
-	
+
 		</structuredBody>
 	</component>
 </ClinicalDocument>
